@@ -1,0 +1,32 @@
+﻿{
+	"configurations": [
+		{
+			"name": "x64-Debug (default)",
+			"generator": "Visual Studio 16 2019 Win64",
+			"configurationType": "Debug",
+			"inheritEnvironments": [ "msvc_x64_x64" ],
+			"buildRoot": "${projectDir}\\out\\build\\${name}",
+			"installRoot": "${projectDir}\\out\\install\\${name}",
+			"cmakeCommandArgs": "",
+			"buildCommandArgs": "",
+			"ctestCommandArgs": "",
+			"variables": [
+				{
+					"name": "OGRE_BUILD_RENDERSYSTEM_D3D9",
+					"value": "False",
+					"type": "BOOL"
+				},
+				{
+					"name": "OGRE_BUILD_DEPENDENCIES",
+					"value": "False",
+					"type": "BOOL"
+				},
+				{
+					"name": "OGRE_INSTALL_VSPROPS",
+					"value": "True",
+					"type": "BOOL"
+				}
+			]
+		}
+	]
+}

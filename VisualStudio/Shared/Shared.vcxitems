@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Label="Globals">
+    <MSBuildAllProjects Condition="'$(MSBuildVersion)' == '' Or '$(MSBuildVersion)' &lt; '16.0'">$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <ItemsProjectGuid>{a05c85c0-dbb1-4f12-aaf7-3d171089120b}</ItemsProjectGuid>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(MSBuildThisFileDirectory)</AdditionalIncludeDirectories>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ProjectCapability Include="SourceItemsFromImports" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="$(MSBuildThisFileDirectory)OgreAssimpExports.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)OgreBitesPrerequisites.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)OgreBspPrerequisites.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)OgreBuildSettings.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)OgreComponents.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)OgreConfigPaths.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)OgreDotScenePluginExports.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)OgreExports.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)OgreFreeImageCodecExports.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)OgreGLES2Config.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)OgreGLES2Exports.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)OgreGLSupportPrerequisites.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)OgreOctreePrerequisites.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)OgreOctreeZonePrerequisites.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)OgreOverlayPrerequisites.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)OgreParticleFXPrerequisites.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)OgrePCZPrerequisites.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)OgrePropertyPrerequisites.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)OgreRTShaderConfig.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)OgreRTShaderExports.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)OgreSTBICodecExports.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)OgreVolumePrerequisites.h" />
+  </ItemGroup>
+</Project>

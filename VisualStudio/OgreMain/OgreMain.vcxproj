@@ -1,0 +1,531 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug DLL|x64">
+      <Configuration>Debug DLL</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{5041DCD2-2751-3151-9823-EF55D9E33D78}</ProjectGuid>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <Keyword>Win32Proj</Keyword>
+    <Platform>x64</Platform>
+    <ProjectName>OgreMain</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+    <VcpkgEnabled>true</VcpkgEnabled>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug DLL|x64'" Label="Configuration">
+    <PlatformToolset>v142</PlatformToolset>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+    <Import Project="..\Shared\Shared.vcxitems" Label="Shared" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="do_not_import_user.props" Condition="exists('do_not_import_user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug DLL|x64'">
+    <Import Project="..\..\..\GameEngine\Properties\Engine Setup.props" />
+    <Import Project="..\Solution Setup.props" />
+    <Import Project="..\..\..\GameEngine\Properties\Debug Setup.props" />
+    <Import Project="..\..\..\GameEngine\Properties\DLL Setup.props" />
+    <Import Project="..\..\..\GameEngine\Properties\64bit Setup.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug DLL|x64'">
+    <CodeAnalysisRuleSet>NativeMinimumRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Label="Vcpkg" Condition="'$(Configuration)|$(Platform)'=='Debug DLL|x64'">
+    <VcpkgTriplet>x64-windows</VcpkgTriplet>
+    <VcpkgConfiguration>Debug</VcpkgConfiguration>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug DLL|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(REPO_DIR)\OgreMain\include\Threading;$(REPO_DIR)\OgreMain\src;$(REPO_DIR)\OgreMain\include;$(REPO_DIR)\OgreMain;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /Zm256 /bigobj</AdditionalOptions>
+      <DisableSpecificWarnings>4661;4251;4275</DisableSpecificWarnings>
+      <PreprocessorDefinitions>WIN32;_MT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>false</SDLCheck>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_MT;_USRDLL;CMAKE_INTDIR=\"Debug\";OgreMain_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\dev\GitHub\ogre\OgreMain\include\Threading;C:\dev\GitHub\ogre\OgreMain\src;C:\dev\GitHub\ogre\OgreMain\include;C:\dev\GitHub\ogre\out\build\x64-Debug (default)\include;C:\dev\GitHub\ogre\OgreMain;C:\dev\GitHub\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\dev\GitHub\ogre\OgreMain\include\Threading;C:\dev\GitHub\ogre\OgreMain\src;C:\dev\GitHub\ogre\OgreMain\include;C:\dev\GitHub\ogre\out\build\x64-Debug (default)\include;C:\dev\GitHub\ogre\OgreMain;C:\dev\GitHub\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <PostBuildEvent>
+      <Message>
+      </Message>
+      <Command>setlocal
+"C:\Program Files\PowerShell\7\pwsh.exe" -noprofile -executionpolicy Bypass -file C:/dev/GitHub/vcpkg/scripts/buildsystems/msbuild/applocal.ps1 -targetBinary "C:/dev/GitHub/ogre/out/build/x64-Debug (default)/bin/Debug/OgreMain_d.dll" -installedDir C:/dev/GitHub/vcpkg/installed/x64-windows/debug/bin -OutVariable out
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PostBuildEvent>
+    <Link>
+      <AdditionalDependencies>zzip.lib;zlibd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <ProjectReference />
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="pch.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug DLL|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\Ogre.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreASTCCodec.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreAlignedAllocator.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreAnimable.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreAnimation.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreAnimationState.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreAnimationTrack.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreAny.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreArchive.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreArchiveFactory.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreArchiveManager.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreAtomicScalar.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreAutoParamDataSource.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreAxisAlignedBox.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreBillboard.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreBillboardChain.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreBillboardParticleRenderer.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreBillboardSet.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreBitwise.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreBlendMode.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreBone.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreCamera.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreCodec.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreColourValue.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreCommon.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreCompositionPass.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreCompositionTargetPass.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreCompositionTechnique.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreCompositor.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreCompositorChain.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreCompositorInstance.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreCompositorLogic.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreCompositorManager.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreConfig.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreConfigDialog.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreConfigFile.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreConfigOptionMap.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreController.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreControllerManager.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreConvexBody.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreCustomCompositionPass.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreDataStream.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreDefaultDebugDrawer.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreDefaultHardwareBufferManager.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreDeflate.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreDepthBuffer.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreDistanceLodStrategy.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreDualQuaternion.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreDynLib.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreDynLibManager.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreEdgeListBuilder.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreEntity.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreException.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreExternalTextureSource.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreExternalTextureSourceManager.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreFactoryObj.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreFileSystem.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreFileSystemLayer.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreFrameListener.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreFrustum.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreGpuProgram.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreGpuProgramManager.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreGpuProgramParams.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreGpuProgramUsage.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreHardwareBuffer.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreHardwareBufferManager.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreHardwareCounterBuffer.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreHardwareIndexBuffer.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreHardwareOcclusionQuery.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreHardwarePixelBuffer.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreHardwareUniformBuffer.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreHardwareVertexBuffer.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreHeaderPrefix.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreHeaderSuffix.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreHighLevelGpuProgram.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreHighLevelGpuProgramManager.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreImage.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreImageCodec.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreInstanceBatch.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreInstanceBatchHW.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreInstanceBatchHW_VTF.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreInstanceBatchShader.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreInstanceBatchVTF.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreInstanceManager.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreInstancedEntity.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreIteratorWrapper.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreIteratorWrappers.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreKeyFrame.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreLight.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreLodListener.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreLodStrategy.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreLodStrategyManager.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreLog.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreLogManager.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreManualObject.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreMaterial.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreMaterialManager.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreMaterialSerializer.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreMath.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreMatrix3.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreMatrix4.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreMemoryAllocatorConfig.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreMesh.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreMeshFileFormat.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreMeshManager.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreMeshSerializer.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreMovableObject.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreMovablePlane.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreMurmurHash3.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreNameGenerator.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreNode.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreNumerics.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreOptimisedUtil.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreParticle.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreParticleAffector.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreParticleAffectorFactory.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreParticleEmitter.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreParticleEmitterFactory.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreParticleIterator.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreParticleSystem.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreParticleSystemManager.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreParticleSystemRenderer.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgrePass.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgrePatchMesh.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgrePatchSurface.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgrePixelCountLodStrategy.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgrePixelFormat.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgrePlane.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgrePlaneBoundedVolume.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgrePlatform.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgrePlatformInformation.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgrePlugin.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgrePolygon.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgrePose.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgrePredefinedControllers.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgrePrerequisites.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreProfiler.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreQuaternion.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreRadixSort.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreRay.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreRectangle2D.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreRenderObjectListener.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreRenderOperation.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreRenderQueue.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreRenderQueueInvocation.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreRenderQueueListener.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreRenderQueueSortingGrouping.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreRenderSystem.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreRenderSystemCapabilities.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreRenderSystemCapabilitiesManager.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreRenderSystemCapabilitiesSerializer.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreRenderTarget.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreRenderTargetListener.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreRenderTexture.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreRenderToVertexBuffer.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreRenderWindow.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreRenderable.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreResource.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreResourceBackgroundQueue.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreResourceGroupManager.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreResourceManager.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreRibbonTrail.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreRoot.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreRotationalSpline.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreSceneLoader.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreSceneLoaderManager.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreSceneManager.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreSceneManagerEnumerator.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreSceneNode.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreSceneQuery.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreScriptCompiler.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreScriptLoader.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreScriptTranslator.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreSearchOps.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreSerializer.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreShadowCameraSetup.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreShadowCameraSetupFocused.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreShadowCameraSetupLiSPSM.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreShadowCameraSetupPSSM.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreShadowCameraSetupPlaneOptimal.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreShadowCaster.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreSharedPtr.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreSimpleRenderable.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreSimpleSpline.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreSingleton.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreSkeleton.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreSkeletonFileFormat.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreSkeletonInstance.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreSkeletonManager.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreSkeletonSerializer.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreSphere.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreStaticFaceGroup.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreStaticGeometry.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreStdHeaders.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreStreamSerialiser.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreString.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreStringConverter.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreStringInterface.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreStringVector.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreSubEntity.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreSubMesh.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreTagPoint.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreTangentSpaceCalc.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreTechnique.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreTexture.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreTextureManager.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreTextureUnitState.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreTimer.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreUnifiedHighLevelGpuProgram.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreUserObjectBindings.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreVector.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreVector2.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreVector3.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreVector4.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreVertexBoneAssignment.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreVertexIndexData.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreViewport.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreWireBoundingBox.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreWorkQueue.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\out\build\x64-Debug (default)\include\OgreBuildSettings.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\out\build\x64-Debug (default)\include\OgreComponents.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\out\build\x64-Debug (default)\include\OgreExports.h" />
+    <ClInclude Include="pch.hpp" />
+    <None Include="C:\dev\GitHub\ogre\OgreMain\include\Ogre.i">
+    </None>
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\Threading\OgreDefaultWorkQueue.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\Threading\OgreDefaultWorkQueueStandard.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\Threading\OgreDefaultWorkQueueTBB.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\Threading\OgreThreadDefines.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\Threading\OgreThreadDefinesBoost.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\Threading\OgreThreadDefinesNone.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\Threading\OgreThreadDefinesPoco.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\Threading\OgreThreadDefinesSTD.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\Threading\OgreThreadDefinesTBB.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\Threading\OgreThreadHeaders.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\Threading\OgreThreadHeadersBoost.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\Threading\OgreThreadHeadersPoco.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\Threading\OgreThreadHeadersSTD.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\Threading\OgreThreadHeadersTBB.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreDDSCodec.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreETCCodec.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreZip.h" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreASTCCodec.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreAlignedAllocator.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreAnimable.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreAnimation.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreAnimationState.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreAnimationTrack.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreArchive.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreArchiveManager.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreAutoParamDataSource.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreAxisAlignedBox.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreBillboard.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreBillboardChain.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreBillboardParticleRenderer.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreBillboardSet.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreBone.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreCamera.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreCodec.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreColourValue.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreCommon.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreCompositionPass.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreCompositionTargetPass.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreCompositionTechnique.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreCompositor.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreCompositorChain.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreCompositorInstance.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreCompositorManager.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreConfigFile.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreControllerManager.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreConvexBody.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreDataStream.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreDefaultDebugDrawer.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreDefaultHardwareBufferManager.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreDefaultSceneQueries.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreDeflate.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreDepthBuffer.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreDistanceLodStrategy.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreDualQuaternion.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreDynLib.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreDynLibManager.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreEdgeListBuilder.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreEntity.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreException.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreExternalTextureSource.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreExternalTextureSourceManager.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreFileSystem.cpp">
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug DLL|x64'">_OGRE_FILESYSTEM_ARCHIVE_UNICODE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreFrustum.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreGpuProgram.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreGpuProgramManager.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreGpuProgramParams.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreGpuProgramUsage.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreHardwareBufferManager.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreHardwareIndexBuffer.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreHardwareOcclusionQuery.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreHardwarePixelBuffer.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreHardwareUniformBuffer.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreHardwareVertexBuffer.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreHighLevelGpuProgram.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreHighLevelGpuProgramManager.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreImage.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreInstanceBatch.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreInstanceBatchHW.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreInstanceBatchHW_VTF.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreInstanceBatchShader.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreInstanceBatchVTF.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreInstanceManager.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreInstancedEntity.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreKeyFrame.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreLight.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreLodStrategy.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreLodStrategyManager.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreLog.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreLogManager.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreManualObject.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreMaterial.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreMaterialManager.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreMaterialSerializer.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreMath.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreMatrix3.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreMatrix4.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreMesh.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreMeshManager.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreMeshSerializer.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreMeshSerializerImpl.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreMovableObject.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreMovablePlane.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreMurmurHash3.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreNode.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreNumerics.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreOptimisedUtil.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreOptimisedUtilGeneral.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreOptimisedUtilSSE.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreParticle.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreParticleEmitter.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreParticleEmitterCommands.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreParticleIterator.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreParticleSystem.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreParticleSystemManager.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgrePass.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgrePatchMesh.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgrePatchSurface.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgrePixelCountLodStrategy.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgrePixelFormat.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgrePlatformInformation.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgrePolygon.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgrePose.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgrePredefinedControllers.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgrePrefabFactory.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreProfiler.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreQuaternion.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreRectangle2D.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreRenderQueue.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreRenderQueueInvocation.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreRenderQueueSortingGrouping.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreRenderSystem.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreRenderSystemCapabilities.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreRenderSystemCapabilitiesManager.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreRenderSystemCapabilitiesSerializer.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreRenderTarget.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreRenderTexture.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreRenderToVertexBuffer.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreRenderWindow.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreRenderable.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreResource.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreResourceBackgroundQueue.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreResourceGroupManager.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreResourceManager.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreRibbonTrail.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreRoot.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreRotationSpline.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreSceneLoaderManager.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreSceneManager.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreSceneManagerEnumerator.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreSceneNode.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreSceneQuery.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreScriptCompiler.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreScriptLexer.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreScriptParser.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreScriptTranslator.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreSerializer.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreShadowCameraSetup.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreShadowCameraSetupFocused.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreShadowCameraSetupLiSPSM.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreShadowCameraSetupPSSM.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreShadowCameraSetupPlaneOptimal.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreShadowCaster.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreShadowRenderer.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreShadowTextureManager.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreShadowVolumeExtrudeProgram.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreSimpleRenderable.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreSimpleSpline.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreSkeleton.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreSkeletonInstance.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreSkeletonManager.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreSkeletonSerializer.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreSkyRenderer.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreStaticGeometry.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreStreamSerialiser.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreString.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreStringConverter.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreStringInterface.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreSubEntity.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreSubMesh.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreTagPoint.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreTangentSpaceCalc.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreTechnique.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreTexture.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreTextureManager.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreTextureUnitState.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreTimer.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreUnifiedHighLevelGpuProgram.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreUserObjectBindings.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreVector.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreVertexIndexData.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreViewport.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreWireBoundingBox.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreWorkQueue.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreDDSCodec.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreETCCodec.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\OgreZip.cpp">
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug DLL|x64'">_OGRE_FILESYSTEM_ARCHIVE_UNICODE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\WIN32\OgreFileSystemLayer.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\OgreMain\src\Threading\OgreDefaultWorkQueueStandard.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
