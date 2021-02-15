@@ -1274,8 +1274,5 @@
     <Filter Include="Source Files">
       <UniqueIdentifier>{CB660BE3-A1A9-3064-9327-7C99B462F9EB}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Config">
-      <UniqueIdentifier>{1da2f2fc-4305-4641-872b-e4dad696bfca}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
 </Project>

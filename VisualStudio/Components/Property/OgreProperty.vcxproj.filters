@@ -9,9 +9,6 @@
     <ClInclude Include="C:\dev\GitHub\ogre\Components\Property\include\OgreProperty.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\dev\GitHub\ogre\out\build\x64-Debug (default)\include\OgrePropertyPrerequisites.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Header Files">

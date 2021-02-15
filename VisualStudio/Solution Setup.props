@@ -3,9 +3,9 @@
   <ImportGroup Label="PropertySheets" />
   <PropertyGroup Label="UserMacros">
     <REPO_NAME>ogre</REPO_NAME>
-    <REPO_DIR>$(GIT_ROOT)\$(REPO_NAME)</REPO_DIR>
+    <REPO_DIR>$(GITHUB_ROOT)\$(REPO_NAME)</REPO_DIR>
     <BUILD_DIR>$(REPO_DIR)\VisualStudio\Build</BUILD_DIR>
-    <IMGUI_ROOT>$(GITHUB_DIR)\imgui</IMGUI_ROOT>
+    <IMGUI_ROOT>$(GITHUB_ROOT)\imgui</IMGUI_ROOT>
   </PropertyGroup>
   <PropertyGroup>
     <CodeAnalysisRuleSet>..\..\Sources\analyzer.ruleset</CodeAnalysisRuleSet>
@@ -59,9 +59,7 @@
       <AdditionalLibraryDirectories>$(BUILD_DIR)\$(Platform)\$(Configuration)</AdditionalLibraryDirectories>
     </Link>
     <Lib />
-    <ResourceCompile>
-      <AdditionalIncludeDirectories>$(SolutionDir)Projects\Shared\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-    </ResourceCompile>
+    <ResourceCompile />
   </ItemDefinitionGroup>
   <ItemGroup>
     <BuildMacro Include="REPO_NAME">
@@ -72,6 +70,7 @@
     </BuildMacro>
     <BuildMacro Include="BUILD_DIR">
       <Value>$(BUILD_DIR)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
     </BuildMacro>
     <BuildMacro Include="IMGUI_ROOT">
       <Value>$(IMGUI_ROOT)</Value>

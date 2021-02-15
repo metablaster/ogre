@@ -128,9 +128,6 @@
     <Filter Include="Source Files">
       <UniqueIdentifier>{CB660BE3-A1A9-3064-9327-7C99B462F9EB}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Config">
-      <UniqueIdentifier>{6db1524d-183b-4dc3-bfe4-e1d7e3a23fe8}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\imgui">
       <UniqueIdentifier>{f57dfaaf-4670-46b8-ab08-ade5a17c9b12}</UniqueIdentifier>
     </Filter>

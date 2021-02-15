@@ -28,7 +28,9 @@
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
   </ImportGroup>
-  <ImportGroup Label="Shared" />
+  <ImportGroup Label="Shared">
+    <Import Project="..\..\Shared\Shared.vcxitems" Label="Shared" />
+  </ImportGroup>
   <ImportGroup Label="PropertySheets">
     <Import Project="do_not_import_user.props" Condition="exists('do_not_import_user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
@@ -50,11 +52,22 @@
     <VcpkgTriplet>x64-windows</VcpkgTriplet>
     <VcpkgConfiguration>Debug</VcpkgConfiguration>
   </PropertyGroup>
+  <PropertyGroup Label="Vcpkg">
+    <VcpkgAutoLink>false</VcpkgAutoLink>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug DLL|x64'">
     <ClCompile />
     <ClCompile>
-      <AdditionalIncludeDirectories>$(REPO_DIR)\Components\Bites\src;$(REPO_DIR)\Components\Bites\include;$(REPO_DIR)\OgreMain\include;$(REPO_DIR)\Components\Overlay\include;$(IMGUI_ROOT);$(REPO_DIR)\Components\RTShaderSystem\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(REPO_DIR)\Components\Bites\src;$(REPO_DIR)\Components\Bites\include;$(REPO_DIR)\OgreMain\include;$(REPO_DIR)\Components\Overlay\include;$(IMGUI_ROOT);$(REPO_DIR)\Components\RTShaderSystem\include;$(VCPKG_ROOT)\include\SDL2;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PreprocessorDefinitions>OgreBites_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
+    <ResourceCompile>
+      <AdditionalIncludeDirectories>$(REPO_DIR)\Components\Bites\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>OgreOverlay.dll.lib;OgreRTShaderSystem.dll.lib;SDL2d.lib;OgreMain.dll.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="C:\dev\GitHub\ogre\Components\Bites\include\OgreAdvancedRenderControls.h" />
@@ -84,6 +97,26 @@
     <ClInclude Include="C:\dev\GitHub\ogre\Components\Bites\src\resource.h" />
     <ResourceCompile Include="C:\dev\GitHub\ogre\Components\Bites\misc\OgreWin32Resources.rc" />
     <ClCompile Include="C:\dev\GitHub\ogre\Components\Bites\src\OgreImGuiInputListener.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\OgreMain\OgreMain.vcxproj">
+      <Project>{5041dcd2-2751-3151-9823-ef55d9e33d78}</Project>
+      <Private>false</Private>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+    <ProjectReference Include="..\Overlay\OgreOverlay.vcxproj">
+      <Project>{9aa155a5-9f7f-3359-86c7-44ad2c41c919}</Project>
+      <Private>false</Private>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+    <ProjectReference Include="..\RTShaderSystem\OgreRTShaderSystem.vcxproj">
+      <Project>{1243770e-b467-3d44-8121-ef13e5e5bef7}</Project>
+      <Private>false</Private>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

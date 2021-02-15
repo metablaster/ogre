@@ -79,7 +79,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="C:\dev\GitHub\ogre\Components\Property\include\OgreProperty.h" />
-    <ClInclude Include="C:\dev\GitHub\ogre\out\build\x64-Debug (default)\include\OgrePropertyPrerequisites.h" />
     <ClCompile Include="C:\dev\GitHub\ogre\Components\Property\src\OgreProperty.cpp" />
   </ItemGroup>
   <ItemGroup>
