@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug DLL|x64">
+      <Configuration>Debug DLL</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{4B4D2333-584E-368F-AAA8-518874968BFB}</ProjectGuid>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <Keyword>Win32Proj</Keyword>
+    <Platform>x64</Platform>
+    <ProjectName>OgreTerrain</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+    <VcpkgEnabled>true</VcpkgEnabled>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug DLL|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+    <UseDebugLibraries>true</UseDebugLibraries>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+    <Import Project="..\..\Shared\Shared.vcxitems" Label="Shared" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="do_not_import_user.props" Condition="exists('do_not_import_user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug DLL|x64'">
+    <Import Project="..\..\..\..\GameEngine\Properties\Engine Setup.props" />
+    <Import Project="..\..\Solution Setup.props" />
+    <Import Project="..\..\..\..\GameEngine\Properties\Debug Setup.props" />
+    <Import Project="..\..\..\..\GameEngine\Properties\DLL Setup.props" />
+    <Import Project="..\..\..\..\GameEngine\Properties\64bit Setup.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug DLL|x64'">
+    <CodeAnalysisRuleSet>NativeMinimumRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Label="Vcpkg" Condition="'$(Configuration)|$(Platform)'=='Debug DLL|x64'">
+    <VcpkgTriplet>x64-windows</VcpkgTriplet>
+    <VcpkgConfiguration>Debug</VcpkgConfiguration>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug DLL|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(REPO_DIR)\Components\Terrain\include;$(REPO_DIR)\OgreMain\include;$(REPO_DIR)\Components\Paging\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PreprocessorDefinitions>OGRE_TERRAIN_EXPORTS;OgreTerrain_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_MT;_USRDLL;OGRE_TERRAIN_EXPORTS;CMAKE_INTDIR=\"Debug\";OgreTerrain_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\dev\GitHub\ogre\Components\Terrain\include;C:\dev\GitHub\ogre\OgreMain\include;C:\dev\GitHub\ogre\out\build\x64-Debug (default)\include;C:\dev\GitHub\ogre\Components\Paging\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\dev\GitHub\ogre\Components\Terrain\include;C:\dev\GitHub\ogre\OgreMain\include;C:\dev\GitHub\ogre\out\build\x64-Debug (default)\include;C:\dev\GitHub\ogre\Components\Paging\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <PostBuildEvent>
+      <Message>
+      </Message>
+    </PostBuildEvent>
+    <Link>
+      <AdditionalDependencies>OgrePaging.dll.lib;OgreMain.dll.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <ProjectReference />
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\Components\Terrain\include\OgreTerrainPrerequisites.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\Components\Terrain\include\OgreTerrain.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\Components\Terrain\include\OgreTerrainAutoUpdateLod.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\Components\Terrain\include\OgreTerrainGroup.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\Components\Terrain\include\OgreTerrainLayerBlendMap.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\Components\Terrain\include\OgreTerrainLodManager.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\Components\Terrain\include\OgreTerrainMaterialGenerator.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\Components\Terrain\include\OgreTerrainMaterialGeneratorA.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\Components\Terrain\include\OgreTerrainQuadTreeNode.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\Components\Terrain\include\OgreTerrainPaging.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\Components\Terrain\include\OgreTerrainPagedWorldSection.h" />
+    <ClCompile Include="C:\dev\GitHub\ogre\Components\Terrain\src\OgreTerrain.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\Components\Terrain\src\OgreTerrainAutoUpdateLod.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\Components\Terrain\src\OgreTerrainGroup.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\Components\Terrain\src\OgreTerrainLayerBlendMap.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\Components\Terrain\src\OgreTerrainLodManager.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\Components\Terrain\src\OgreTerrainMaterialGenerator.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\Components\Terrain\src\OgreTerrainMaterialGeneratorA.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\Components\Terrain\src\OgreTerrainMaterialShaderHelperGLSL.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\Components\Terrain\src\OgreTerrainQuadTreeNode.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\Components\Terrain\src\OgreTerrainPaging.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\Components\Terrain\src\OgreTerrainPagedWorldSection.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\OgreMain\OgreMain.vcxproj">
+      <Project>{5041dcd2-2751-3151-9823-ef55d9e33d78}</Project>
+      <Private>false</Private>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+    <ProjectReference Include="..\Paging\OgrePaging.vcxproj">
+      <Project>{09cd5791-e298-31c2-b819-3ba11eafa2ed}</Project>
+      <Private>false</Private>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

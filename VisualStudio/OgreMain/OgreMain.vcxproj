@@ -55,11 +55,9 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug DLL|x64'">
     <ClCompile>
       <AdditionalIncludeDirectories>$(REPO_DIR)\OgreMain\include\Threading;$(REPO_DIR)\OgreMain\src;$(REPO_DIR)\OgreMain\include;$(REPO_DIR)\OgreMain;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <AdditionalOptions>%(AdditionalOptions) /Zm256 /bigobj</AdditionalOptions>
-      <DisableSpecificWarnings>4661;4251;4275</DisableSpecificWarnings>
       <PreprocessorDefinitions>WIN32;_MT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <SDLCheck>false</SDLCheck>
+      <ForcedIncludeFiles>pch.hpp</ForcedIncludeFiles>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_MT;_USRDLL;CMAKE_INTDIR=\"Debug\";OgreMain_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -76,15 +74,6 @@
     <PostBuildEvent>
       <Message>
       </Message>
-      <Command>setlocal
-"C:\Program Files\PowerShell\7\pwsh.exe" -noprofile -executionpolicy Bypass -file C:/dev/GitHub/vcpkg/scripts/buildsystems/msbuild/applocal.ps1 -targetBinary "C:/dev/GitHub/ogre/out/build/x64-Debug (default)/bin/Debug/OgreMain_d.dll" -installedDir C:/dev/GitHub/vcpkg/installed/x64-windows/debug/bin -OutVariable out
-if %errorlevel% neq 0 goto :cmEnd
-:cmEnd
-endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
-:cmErrorLevel
-exit /b %1
-:cmDone
-if %errorlevel% neq 0 goto :VCEnd</Command>
     </PostBuildEvent>
     <Link>
       <AdditionalDependencies>zzip.lib;zlibd.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -314,9 +303,6 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreViewport.h" />
     <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreWireBoundingBox.h" />
     <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreWorkQueue.h" />
-    <ClInclude Include="C:\dev\GitHub\ogre\out\build\x64-Debug (default)\include\OgreBuildSettings.h" />
-    <ClInclude Include="C:\dev\GitHub\ogre\out\build\x64-Debug (default)\include\OgreComponents.h" />
-    <ClInclude Include="C:\dev\GitHub\ogre\out\build\x64-Debug (default)\include\OgreExports.h" />
     <ClInclude Include="pch.hpp" />
     <None Include="C:\dev\GitHub\ogre\OgreMain\include\Ogre.i">
     </None>

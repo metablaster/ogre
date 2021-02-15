@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug DLL|x64">
+      <Configuration>Debug DLL</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{5B61FA89-EC8F-38E8-BEF5-50680B862BBB}</ProjectGuid>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <Keyword>Win32Proj</Keyword>
+    <Platform>x64</Platform>
+    <ProjectName>OgreBites</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+    <VcpkgEnabled>true</VcpkgEnabled>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Debug DLL|x64'">
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared" />
+  <ImportGroup Label="PropertySheets">
+    <Import Project="do_not_import_user.props" Condition="exists('do_not_import_user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug DLL|x64'">
+    <Import Project="..\..\..\..\GameEngine\Properties\Engine Setup.props" />
+    <Import Project="..\..\Solution Setup.props" />
+    <Import Project="..\..\..\..\GameEngine\Properties\Debug Setup.props" />
+    <Import Project="..\..\..\..\GameEngine\Properties\DLL Setup.props" />
+    <Import Project="..\..\..\..\GameEngine\Properties\64bit Setup.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug DLL|x64'">
+    <CodeAnalysisRuleSet>NativeMinimumRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Label="Vcpkg" Condition="'$(Configuration)|$(Platform)'=='Debug DLL|x64'">
+    <VcpkgTriplet>x64-windows</VcpkgTriplet>
+    <VcpkgConfiguration>Debug</VcpkgConfiguration>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug DLL|x64'">
+    <ClCompile />
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(REPO_DIR)\Components\Bites\src;$(REPO_DIR)\Components\Bites\include;$(REPO_DIR)\OgreMain\include;$(REPO_DIR)\Components\Overlay\include;$(IMGUI_ROOT);$(REPO_DIR)\Components\RTShaderSystem\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\dev\GitHub\ogre\Components\Bites\include\OgreAdvancedRenderControls.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\Components\Bites\include\OgreApplicationContext.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\Components\Bites\include\OgreApplicationContextBase.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\Components\Bites\include\OgreApplicationContextQt.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\Components\Bites\include\OgreBitesConfigDialog.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\Components\Bites\include\OgreCameraMan.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\Components\Bites\include\OgreImGuiInputListener.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\Components\Bites\include\OgreInput.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\Components\Bites\include\OgreSGTechniqueResolverListener.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\Components\Bites\include\OgreStaticPluginLoader.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\Components\Bites\include\OgreTrays.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\Components\Bites\include\OgreWindowEventUtilities.h" />
+    <None Include="C:\dev\GitHub\ogre\Components\Bites\include\OgreBites.i">
+    </None>
+    <ClCompile Include="C:\dev\GitHub\ogre\Components\Bites\src\OgreAdvancedRenderControls.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\Components\Bites\src\OgreApplicationContextBase.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\Components\Bites\src\OgreBitesConfigDialog.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\Components\Bites\src\OgreCameraMan.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\Components\Bites\src\OgreSGTechniqueResolverListener.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\Components\Bites\src\OgreStaticPluginLoader.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\Components\Bites\src\OgreTrays.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\Components\Bites\src\OgreWindowEventUtilities.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\Components\Bites\src\OgreApplicationContextSDL.cpp" />
+    <ClCompile Include="C:\dev\GitHub\ogre\Components\Bites\src\OgreWIN32ConfigDialog.cpp" />
+    <ClInclude Include="C:\dev\GitHub\ogre\Components\Bites\src\resource.h" />
+    <ResourceCompile Include="C:\dev\GitHub\ogre\Components\Bites\misc\OgreWin32Resources.rc" />
+    <ClCompile Include="C:\dev\GitHub\ogre\Components\Bites\src\OgreImGuiInputListener.cpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

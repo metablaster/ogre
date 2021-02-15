@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31005.135
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "OgreMain", "OgreMain\OgreMain.vcxproj", "{5041DCD2-2751-3151-9823-EF55D9E33D78}"
-EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Shared", "Shared\Shared.vcxitems", "{A05C85C0-DBB1-4F12-AAF7-3D171089120B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{76A3C4A1-EF24-4F25-A8DA-E66BBBD2554B}"
@@ -12,10 +10,37 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		..\.gitignore = ..\.gitignore
 	EndProjectSection
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "OgreMain", "OgreMain\OgreMain.vcxproj", "{5041DCD2-2751-3151-9823-EF55D9E33D78}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Components", "Components", "{FD6F6249-CEFE-48BC-919F-D9066CF322E7}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "OgreBites", "Components\Bites\OgreBites.vcxproj", "{5B61FA89-EC8F-38E8-BEF5-50680B862BBB}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "OgreRTShaderSystem", "Components\RTShaderSystem\OgreRTShaderSystem.vcxproj", "{1243770E-B467-3D44-8121-EF13E5E5BEF7}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "OgreOverlay", "Components\Overlay\OgreOverlay.vcxproj", "{9AA155A5-9F7F-3359-86C7-44AD2C41C919}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "OgreVolume", "Components\Volume\OgreVolume.vcxproj", "{A47B172E-8753-3298-B51D-0277FDFFC41D}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "OgreTerrain", "Components\Terrain\OgreTerrain.vcxproj", "{4B4D2333-584E-368F-AAA8-518874968BFB}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "OgrePaging", "Components\Paging\OgrePaging.vcxproj", "{09CD5791-E298-31C2-B819-3BA11EAFA2ED}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "OgreMeshLodGenerator", "Components\MeshLodGenerator\OgreMeshLodGenerator.vcxproj", "{4DE0E742-B400-3838-B7AC-99E509FE35B0}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "OgreProperty", "Components\Property\OgreProperty.vcxproj", "{8E934478-60F5-3A27-B279-200C561ACC3D}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		Shared\Shared.vcxitems*{09cd5791-e298-31c2-b819-3ba11eafa2ed}*SharedItemsImports = 4
+		Shared\Shared.vcxitems*{1243770e-b467-3d44-8121-ef13e5e5bef7}*SharedItemsImports = 4
+		Shared\Shared.vcxitems*{4b4d2333-584e-368f-aaa8-518874968bfb}*SharedItemsImports = 4
+		Shared\Shared.vcxitems*{4de0e742-b400-3838-b7ac-99e509fe35b0}*SharedItemsImports = 4
 		Shared\Shared.vcxitems*{5041dcd2-2751-3151-9823-ef55d9e33d78}*SharedItemsImports = 4
+		Shared\Shared.vcxitems*{8e934478-60f5-3a27-b279-200c561acc3d}*SharedItemsImports = 4
+		Shared\Shared.vcxitems*{9aa155a5-9f7f-3359-86c7-44ad2c41c919}*SharedItemsImports = 4
 		Shared\Shared.vcxitems*{a05c85c0-dbb1-4f12-aaf7-3d171089120b}*SharedItemsImports = 9
+		Shared\Shared.vcxitems*{a47b172e-8753-3298-b51d-0277fdffc41d}*SharedItemsImports = 4
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug DLL|x64 = Debug DLL|x64
@@ -23,9 +48,35 @@ Global
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{5041DCD2-2751-3151-9823-EF55D9E33D78}.Debug DLL|x64.ActiveCfg = Debug DLL|x64
 		{5041DCD2-2751-3151-9823-EF55D9E33D78}.Debug DLL|x64.Build.0 = Debug DLL|x64
+		{5B61FA89-EC8F-38E8-BEF5-50680B862BBB}.Debug DLL|x64.ActiveCfg = Debug DLL|x64
+		{5B61FA89-EC8F-38E8-BEF5-50680B862BBB}.Debug DLL|x64.Build.0 = Debug DLL|x64
+		{1243770E-B467-3D44-8121-EF13E5E5BEF7}.Debug DLL|x64.ActiveCfg = Debug DLL|x64
+		{1243770E-B467-3D44-8121-EF13E5E5BEF7}.Debug DLL|x64.Build.0 = Debug DLL|x64
+		{9AA155A5-9F7F-3359-86C7-44AD2C41C919}.Debug DLL|x64.ActiveCfg = Debug DLL|x64
+		{9AA155A5-9F7F-3359-86C7-44AD2C41C919}.Debug DLL|x64.Build.0 = Debug DLL|x64
+		{A47B172E-8753-3298-B51D-0277FDFFC41D}.Debug DLL|x64.ActiveCfg = Debug DLL|x64
+		{A47B172E-8753-3298-B51D-0277FDFFC41D}.Debug DLL|x64.Build.0 = Debug DLL|x64
+		{4B4D2333-584E-368F-AAA8-518874968BFB}.Debug DLL|x64.ActiveCfg = Debug DLL|x64
+		{4B4D2333-584E-368F-AAA8-518874968BFB}.Debug DLL|x64.Build.0 = Debug DLL|x64
+		{09CD5791-E298-31C2-B819-3BA11EAFA2ED}.Debug DLL|x64.ActiveCfg = Debug DLL|x64
+		{09CD5791-E298-31C2-B819-3BA11EAFA2ED}.Debug DLL|x64.Build.0 = Debug DLL|x64
+		{4DE0E742-B400-3838-B7AC-99E509FE35B0}.Debug DLL|x64.ActiveCfg = Debug DLL|x64
+		{4DE0E742-B400-3838-B7AC-99E509FE35B0}.Debug DLL|x64.Build.0 = Debug DLL|x64
+		{8E934478-60F5-3A27-B279-200C561ACC3D}.Debug DLL|x64.ActiveCfg = Debug DLL|x64
+		{8E934478-60F5-3A27-B279-200C561ACC3D}.Debug DLL|x64.Build.0 = Debug DLL|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{5B61FA89-EC8F-38E8-BEF5-50680B862BBB} = {FD6F6249-CEFE-48BC-919F-D9066CF322E7}
+		{1243770E-B467-3D44-8121-EF13E5E5BEF7} = {FD6F6249-CEFE-48BC-919F-D9066CF322E7}
+		{9AA155A5-9F7F-3359-86C7-44AD2C41C919} = {FD6F6249-CEFE-48BC-919F-D9066CF322E7}
+		{A47B172E-8753-3298-B51D-0277FDFFC41D} = {FD6F6249-CEFE-48BC-919F-D9066CF322E7}
+		{4B4D2333-584E-368F-AAA8-518874968BFB} = {FD6F6249-CEFE-48BC-919F-D9066CF322E7}
+		{09CD5791-E298-31C2-B819-3BA11EAFA2ED} = {FD6F6249-CEFE-48BC-919F-D9066CF322E7}
+		{4DE0E742-B400-3838-B7AC-99E509FE35B0} = {FD6F6249-CEFE-48BC-919F-D9066CF322E7}
+		{8E934478-60F5-3A27-B279-200C561ACC3D} = {FD6F6249-CEFE-48BC-919F-D9066CF322E7}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {96C09FA3-C754-46A5-A712-76E1E2F30C92}

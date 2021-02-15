@@ -5,6 +5,7 @@
     <REPO_NAME>ogre</REPO_NAME>
     <REPO_DIR>$(GIT_ROOT)\$(REPO_NAME)</REPO_DIR>
     <BUILD_DIR>$(REPO_DIR)\VisualStudio\Build</BUILD_DIR>
+    <IMGUI_ROOT>$(GITHUB_DIR)\imgui</IMGUI_ROOT>
   </PropertyGroup>
   <PropertyGroup>
     <CodeAnalysisRuleSet>..\..\Sources\analyzer.ruleset</CodeAnalysisRuleSet>
@@ -31,7 +32,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup>
     <ClCompile>
-      <SDLCheck>true</SDLCheck>
+      <SDLCheck>false</SDLCheck>
       <LanguageStandard>stdcpp14</LanguageStandard>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <OpenMPSupport>false</OpenMPSupport>
@@ -41,7 +42,7 @@
       <UseFullPaths>false</UseFullPaths>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalOptions>/Zc:throwingNew %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>/Zc:throwingNew /Zm256 /bigobj %(AdditionalOptions)</AdditionalOptions>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <EnableModules>true</EnableModules>
       <ControlFlowGuard>false</ControlFlowGuard>
@@ -49,13 +50,13 @@
       <UseUnicodeForAssemblerListing>true</UseUnicodeForAssemblerListing>
       <FloatingPointExceptions>false</FloatingPointExceptions>
       <EnforceTypeConversionRules>true</EnforceTypeConversionRules>
-      <ForcedIncludeFiles>pch.hpp</ForcedIncludeFiles>
+      <DisableSpecificWarnings>4661;4251;4275;%(DisableSpecificWarnings)</DisableSpecificWarnings>
     </ClCompile>
     <Link>
       <TreatLinkerWarningAsErrors>false</TreatLinkerWarningAsErrors>
       <AdditionalOptions>/verbose:incr %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalLibraryDirectories>$(BUILD_DIR)\$(Platform)\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <AdditionalLibraryDirectories>$(BUILD_DIR)\$(Platform)\$(Configuration)</AdditionalLibraryDirectories>
     </Link>
     <Lib />
     <ResourceCompile>
@@ -71,6 +72,9 @@
     </BuildMacro>
     <BuildMacro Include="BUILD_DIR">
       <Value>$(BUILD_DIR)</Value>
+    </BuildMacro>
+    <BuildMacro Include="IMGUI_ROOT">
+      <Value>$(IMGUI_ROOT)</Value>
     </BuildMacro>
   </ItemGroup>
 </Project>

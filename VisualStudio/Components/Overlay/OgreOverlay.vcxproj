@@ -1,0 +1,198 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug DLL|x64">
+      <Configuration>Debug DLL</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{9AA155A5-9F7F-3359-86C7-44AD2C41C919}</ProjectGuid>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <Keyword>Win32Proj</Keyword>
+    <Platform>x64</Platform>
+    <ProjectName>OgreOverlay</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+    <VcpkgEnabled>true</VcpkgEnabled>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug DLL|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+    <UseDebugLibraries>true</UseDebugLibraries>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+    <Import Project="..\..\Shared\Shared.vcxitems" Label="Shared" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="do_not_import_user.props" Condition="exists('do_not_import_user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug DLL|x64'" Label="PropertySheets">
+    <Import Project="..\..\..\..\GameEngine\Properties\Engine Setup.props" />
+    <Import Project="..\..\Solution Setup.props" />
+    <Import Project="..\..\..\..\GameEngine\Properties\Debug Setup.props" />
+    <Import Project="..\..\..\..\GameEngine\Properties\DLL Setup.props" />
+    <Import Project="..\..\..\..\GameEngine\Properties\64bit Setup.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug DLL|x64'">
+    <CodeAnalysisRuleSet>NativeMinimumRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug DLL|x64'" Label="Vcpkg">
+    <VcpkgTriplet>x64-windows</VcpkgTriplet>
+    <VcpkgConfiguration>Debug</VcpkgConfiguration>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug DLL|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(REPO_DIR)\Components\Overlay\include;$(REPO_DIR)\out\build\x64-Debug (default)\imgui-1.79;$(REPO_DIR)\out\build\x64-Debug (default)\imgui-1.79\misc\freetype;$(REPO_DIR)\OgreMain\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PreprocessorDefinitions>OgreOverlay_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_MT;_USRDLL;CMAKE_INTDIR=\"Debug\";OgreOverlay_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\dev\GitHub\ogre\Components\Overlay\include;C:\dev\GitHub\ogre\out\build\x64-Debug (default)\imgui-1.79;C:\dev\GitHub\ogre\out\build\x64-Debug (default)\imgui-1.79\misc\freetype;C:\dev\GitHub\ogre\OgreMain\include;C:\dev\GitHub\ogre\out\build\x64-Debug (default)\include;C:\dev\GitHub\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\dev\GitHub\ogre\Components\Overlay\include;C:\dev\GitHub\ogre\out\build\x64-Debug (default)\imgui-1.79;C:\dev\GitHub\ogre\out\build\x64-Debug (default)\imgui-1.79\misc\freetype;C:\dev\GitHub\ogre\OgreMain\include;C:\dev\GitHub\ogre\out\build\x64-Debug (default)\include;C:\dev\GitHub\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <PostBuildEvent>
+      <Message>
+      </Message>
+    </PostBuildEvent>
+    <Link>
+      <AdditionalDependencies>OgreMain.dll.lib;freetyped.lib;zlibd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <ProjectReference />
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\..\imgui\imgui.h" />
+    <ClInclude Include="..\..\..\..\imgui\imgui_internal.h" />
+    <ClInclude Include="..\..\..\..\imgui\misc\freetype\imgui_freetype.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\Components\Overlay\include\OgreBorderPanelOverlayElement.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\Components\Overlay\include\OgreFont.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\Components\Overlay\include\OgreFontManager.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\Components\Overlay\include\OgreImGuiOverlay.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\Components\Overlay\include\OgreOverlay.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\Components\Overlay\include\OgreOverlayContainer.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\Components\Overlay\include\OgreOverlayElement.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\Components\Overlay\include\OgreOverlayElementFactory.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\Components\Overlay\include\OgreOverlayManager.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\Components\Overlay\include\OgreOverlayProfileSessionListener.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\Components\Overlay\include\OgreOverlaySystem.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\Components\Overlay\include\OgrePanelOverlayElement.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\Components\Overlay\include\OgreTextAreaOverlayElement.h" />
+    <ClInclude Include="C:\dev\GitHub\ogre\Components\Overlay\include\OgreUTFString.h" />
+    <None Include="C:\dev\GitHub\ogre\Components\Overlay\include\OgreOverlay.i">
+    </None>
+    <ClCompile Include="..\..\..\..\imgui\imgui.cpp">
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug DLL|x64'">
+      </ForcedIncludeFiles>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\imgui\imgui_demo.cpp">
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug DLL|x64'">
+      </ForcedIncludeFiles>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\imgui\imgui_draw.cpp">
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug DLL|x64'">
+      </ForcedIncludeFiles>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\imgui\imgui_widgets.cpp">
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug DLL|x64'">
+      </ForcedIncludeFiles>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\imgui\misc\freetype\imgui_freetype.cpp">
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug DLL|x64'">
+      </ForcedIncludeFiles>
+    </ClCompile>
+    <ClCompile Include="C:\dev\GitHub\ogre\Components\Overlay\src\OgreBorderPanelOverlayElement.cpp">
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug DLL|x64'">
+      </ForcedIncludeFiles>
+    </ClCompile>
+    <ClCompile Include="C:\dev\GitHub\ogre\Components\Overlay\src\OgreFont.cpp">
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug DLL|x64'">
+      </ForcedIncludeFiles>
+    </ClCompile>
+    <ClCompile Include="C:\dev\GitHub\ogre\Components\Overlay\src\OgreFontManager.cpp">
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug DLL|x64'">
+      </ForcedIncludeFiles>
+    </ClCompile>
+    <ClCompile Include="C:\dev\GitHub\ogre\Components\Overlay\src\OgreImGuiOverlay.cpp">
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug DLL|x64'">
+      </ForcedIncludeFiles>
+    </ClCompile>
+    <ClCompile Include="C:\dev\GitHub\ogre\Components\Overlay\src\OgreOverlay.cpp">
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug DLL|x64'">
+      </ForcedIncludeFiles>
+    </ClCompile>
+    <ClCompile Include="C:\dev\GitHub\ogre\Components\Overlay\src\OgreOverlayContainer.cpp">
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug DLL|x64'">
+      </ForcedIncludeFiles>
+    </ClCompile>
+    <ClCompile Include="C:\dev\GitHub\ogre\Components\Overlay\src\OgreOverlayElement.cpp">
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug DLL|x64'">
+      </ForcedIncludeFiles>
+    </ClCompile>
+    <ClCompile Include="C:\dev\GitHub\ogre\Components\Overlay\src\OgreOverlayElementCommands.cpp">
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug DLL|x64'">
+      </ForcedIncludeFiles>
+    </ClCompile>
+    <ClCompile Include="C:\dev\GitHub\ogre\Components\Overlay\src\OgreOverlayElementFactory.cpp">
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug DLL|x64'">
+      </ForcedIncludeFiles>
+    </ClCompile>
+    <ClCompile Include="C:\dev\GitHub\ogre\Components\Overlay\src\OgreOverlayManager.cpp">
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug DLL|x64'">
+      </ForcedIncludeFiles>
+    </ClCompile>
+    <ClCompile Include="C:\dev\GitHub\ogre\Components\Overlay\src\OgreOverlayProfileSessionListener.cpp">
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug DLL|x64'">
+      </ForcedIncludeFiles>
+    </ClCompile>
+    <ClCompile Include="C:\dev\GitHub\ogre\Components\Overlay\src\OgreOverlaySystem.cpp">
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug DLL|x64'">
+      </ForcedIncludeFiles>
+    </ClCompile>
+    <ClCompile Include="C:\dev\GitHub\ogre\Components\Overlay\src\OgreOverlayTranslator.cpp">
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug DLL|x64'">
+      </ForcedIncludeFiles>
+    </ClCompile>
+    <ClCompile Include="C:\dev\GitHub\ogre\Components\Overlay\src\OgrePanelOverlayElement.cpp">
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug DLL|x64'">
+      </ForcedIncludeFiles>
+    </ClCompile>
+    <ClCompile Include="C:\dev\GitHub\ogre\Components\Overlay\src\OgreTextAreaOverlayElement.cpp">
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug DLL|x64'">
+      </ForcedIncludeFiles>
+    </ClCompile>
+    <ClCompile Include="C:\dev\GitHub\ogre\Components\Overlay\src\OgreUTFString.cpp">
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug DLL|x64'">
+      </ForcedIncludeFiles>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\OgreMain\OgreMain.vcxproj">
+      <Project>{5041dcd2-2751-3151-9823-ef55d9e33d78}</Project>
+      <Private>false</Private>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

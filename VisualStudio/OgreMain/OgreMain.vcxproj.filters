@@ -1206,15 +1206,6 @@
     <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\OgreWorkQueue.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\dev\GitHub\ogre\out\build\x64-Debug (default)\include\OgreBuildSettings.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\dev\GitHub\ogre\out\build\x64-Debug (default)\include\OgreComponents.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\dev\GitHub\ogre\out\build\x64-Debug (default)\include\OgreExports.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="C:\dev\GitHub\ogre\OgreMain\include\Threading\OgreDefaultWorkQueue.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -1282,6 +1273,9 @@
     </Filter>
     <Filter Include="Source Files">
       <UniqueIdentifier>{CB660BE3-A1A9-3064-9327-7C99B462F9EB}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Config">
+      <UniqueIdentifier>{1da2f2fc-4305-4641-872b-e4dad696bfca}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
